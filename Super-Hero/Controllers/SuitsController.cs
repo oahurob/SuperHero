@@ -5,12 +5,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Super_Hero.Data;
+using Super_Hero.Models;
 
 namespace Super_Hero.Controllers
 {
     public class SuitsController : Controller
     {
         private ApplicationDbContext db;
+
+        public SuitsController(ApplicationDbContext db)
+        {
+            this.db = db;
+        }
 
         // GET: Suits
         public ActionResult Index()
@@ -27,13 +33,14 @@ namespace Super_Hero.Controllers
         // GET: Suits/Create
         public ActionResult Create()
         {
+            Suit suit = new Suit();
             return View();
         }
 
         // POST: Suits/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Suit suit)
         {
             try
             {
