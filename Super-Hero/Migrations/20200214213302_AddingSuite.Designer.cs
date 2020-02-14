@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Super_Hero.Data;
 
-namespace Super_Hero.Data.Migrations
+namespace Super_Hero.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200214204707_initialMigration")]
-    partial class initialMigration
+    [Migration("20200214213302_AddingSuite")]
+    partial class AddingSuite
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

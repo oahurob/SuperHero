@@ -14,6 +14,6 @@ namespace Super_Hero.Data
         {
         }
 
-        public DbSet<Suit> Suits;
+        public DbSet<Suit> Suits { get; set; }
     }
 }
