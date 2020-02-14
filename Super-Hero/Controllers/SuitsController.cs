@@ -45,7 +45,8 @@ namespace Super_Hero.Controllers
             try
             {
                 // TODO: Add insert logic here
-
+                db.Suits.Add(suit);
+                db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
