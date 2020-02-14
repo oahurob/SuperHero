@@ -13,5 +13,6 @@ namespace Super_Hero.Models
         public string SuitNumber { get; set; }
         public string SuitName { get; set; }
         public string Specialty { get; set; }
+
     }
 }
