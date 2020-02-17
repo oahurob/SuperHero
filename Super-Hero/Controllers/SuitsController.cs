@@ -28,7 +28,8 @@ namespace Super_Hero.Controllers
         // GET: Suits/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Suit suit = db.Suits.Find(id);
+            return View(suit);
         }
 
         // GET: Suits/Create
@@ -70,7 +71,7 @@ namespace Super_Hero.Controllers
             try
             {
                 // TODO: Add update logic here
-
+                //set to new values
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -94,7 +95,7 @@ namespace Super_Hero.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                db.Suits.Remove();
                 return RedirectToAction(nameof(Index));
             }
             catch
