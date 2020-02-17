@@ -66,12 +66,15 @@ namespace Super_Hero.Controllers
         // POST: Suits/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Suit suit)
         {
             try
             {
                 // TODO: Add update logic here
-                //set to new values
+                Suit editSuit = db.Suits.Find(id);
+                suit.SuitNumber = editSuit.SuitNumber;
+                suit.SuitName = editSuit.SuitName;
+                suit.Specialty = editSuit.Specialty;
                 return RedirectToAction(nameof(Index));
             }
             catch
