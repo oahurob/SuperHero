@@ -75,6 +75,7 @@ namespace Super_Hero.Controllers
                 suit.SuitNumber = editSuit.SuitNumber;
                 suit.SuitName = editSuit.SuitName;
                 suit.Specialty = editSuit.Specialty;
+                db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
