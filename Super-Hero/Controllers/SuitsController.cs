@@ -99,7 +99,8 @@ namespace Super_Hero.Controllers
             try
             {
                 // TODO: Add delete logic here
-                db.Suits.Remove();
+                Suit suitToRemove = db.Suits.Find(id); //?
+                db.Suits.Remove(suitToRemove); //?
                 return RedirectToAction(nameof(Index));
             }
             catch
