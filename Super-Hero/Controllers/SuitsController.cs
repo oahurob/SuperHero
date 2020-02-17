@@ -21,7 +21,8 @@ namespace Super_Hero.Controllers
         // GET: Suits
         public ActionResult Index()
         {
-            return View();
+            var Suits = db.Suits;
+            return View(Suits);
         }
 
         // GET: Suits/Details/5
@@ -81,13 +82,14 @@ namespace Super_Hero.Controllers
         // GET: Suits/Delete/5
         public ActionResult Delete(int id)
         {
+
             return View();
         }
 
         // POST: Suits/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Suit suit)
         {
             try
             {
