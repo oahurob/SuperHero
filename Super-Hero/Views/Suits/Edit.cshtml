@@ -1,0 +1,44 @@
+﻿@model Super_Hero.Models.Suit
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Suit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="SuitNumber" class="control-label"></label>
+                <input asp-for="SuitNumber" class="form-control" />
+                <span asp-validation-for="SuitNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SuitName" class="control-label"></label>
+                <input asp-for="SuitName" class="form-control" />
+                <span asp-validation-for="SuitName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specialty" class="control-label"></label>
+                <input asp-for="Specialty" class="form-control" />
+                <span asp-validation-for="Specialty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

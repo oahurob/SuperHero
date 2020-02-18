@@ -42,14 +42,21 @@ namespace Super_Hero.Controllers
         // POST: Suits/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Suit suit)
+        public ActionResult Create([Bind ("Id,SuitNumber,SuitName,Specialty")]Suit suit)
         {
             try
             {
                 // TODO: Add insert logic here
-                db.Suits.Add(suit);
-                db.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    db.Suits.Add(suit);
+                    db.SaveChanges();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return RedirectToAction(nameof(Index));
+                }
             }
             catch
             {
@@ -87,8 +94,8 @@ namespace Super_Hero.Controllers
         // GET: Suits/Delete/5
         public ActionResult Delete(int id)
         {
-
-            return View();
+            
+            return View(db.Suits.Find(id));
         }
 
         // POST: Suits/Delete/5
