@@ -67,7 +67,7 @@ namespace Super_Hero.Controllers
         // GET: Suits/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(db.Suits.Find(id));
         }
 
         // POST: Suits/Edit/5
@@ -79,9 +79,9 @@ namespace Super_Hero.Controllers
             {
                 // TODO: Add update logic here
                 Suit editSuit = db.Suits.Find(id);
-                suit.SuitNumber = editSuit.SuitNumber;
-                suit.SuitName = editSuit.SuitName;
-                suit.Specialty = editSuit.Specialty;
+                editSuit.SuitNumber = suit.SuitNumber;
+                editSuit.SuitName = suit.SuitName;
+                editSuit.Specialty = suit.Specialty;
                 db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
@@ -108,6 +108,7 @@ namespace Super_Hero.Controllers
                 // TODO: Add delete logic here
                 Suit suitToRemove = db.Suits.Find(id); //?
                 db.Suits.Remove(suitToRemove); //?
+                db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
